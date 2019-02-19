@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 import Student from "./Student";
 
-const HomeView = props => {
+const StudentList = props => {
   if (!props.students) {
     return (
       <div>
@@ -13,7 +13,7 @@ const HomeView = props => {
     );
   } else {
     return (
-      <div className="HomeView">
+      <div className="student-list">
         <div className="header">
           <h1>Welcome to Fun Bus</h1>
           <h2 className="list-header">Team Members:</h2>
@@ -23,7 +23,7 @@ const HomeView = props => {
             {props.students
               .map(student => {
                 return (
-                  <Link to={`/${student.id}`} key={student.id}>
+                  <Link to={`/scoreboard/${student.id}`} key={student.id}>
                     <Student
                       {...props}
                       name={student.name}
@@ -45,10 +45,10 @@ Student.defaultProps = {
   students: []
 };
 
-HomeView.propTypes = {
+StudentList.propTypes = {
   students: PropTypes.array,
   name: PropTypes.string,
   id: PropTypes.number
 };
 
-export default HomeView;
+export default StudentList;
