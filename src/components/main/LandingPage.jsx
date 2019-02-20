@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-
-import Header from "./Header";
+import { withStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
 
 class LandingPage extends Component {
   constructor(props) {
@@ -11,13 +11,35 @@ class LandingPage extends Component {
   render() {
     return (
       <div className="home">
-        <Header />
-        <Link to="/scoreboard">
-          <button className="leaderboard-button">Scoreboard</button>
-        </Link>
+        <div className="main-img">
+          {
+            <img
+              src={require("../../img/logo.png")}
+              className="logo"
+              style={imageStyle}
+            />
+          }
+        </div>
+
+        <Button
+          component={Link}
+          to="/scoreboard"
+          variant="outlined"
+          color="secondary"
+          className="button"
+        >
+          Scoreboard
+        </Button>
       </div>
     );
   }
 }
 
 export default LandingPage;
+
+const imageStyle = {
+  width: "100%",
+  maxWidth: "40vw",
+  height: "auto",
+  margin: "0 auto"
+};

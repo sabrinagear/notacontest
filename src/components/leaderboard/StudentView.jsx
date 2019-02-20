@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import Button from "@material-ui/core/Button";
 
 import Entry from "./Entry";
 
@@ -12,7 +14,7 @@ class StudentView extends Component {
     super(props);
     this.state = {
       totalPoints: 0,
-      pointEntries: null,
+      pointEntries: [],
       name: ""
     };
   }
@@ -83,8 +85,9 @@ class StudentView extends Component {
       return (
         <div className="student-view">
           <h1>{name}</h1>
-          <h1>Total Points: {totalPoints}</h1>
-          <h1>Point Entries:</h1>
+          <h2>Total Points: {totalPoints}</h2>
+          <h2>Point Entries:</h2>
+
           <ul>
             {pointEntries.map(entry => {
               return (
@@ -98,6 +101,15 @@ class StudentView extends Component {
               );
             })}
           </ul>
+          <Button
+            component={Link}
+            to="/scoreboard"
+            variant="outlined"
+            color="secondary"
+            className="button"
+          >
+            Back
+          </Button>
         </div>
       );
     }

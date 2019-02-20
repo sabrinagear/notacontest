@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Button from "@material-ui/core/Button";
 import PropTypes from "prop-types";
 
 import Student from "./Student";
@@ -14,8 +15,8 @@ const StudentList = props => {
   } else {
     return (
       <div className="student-list">
-        <div className="header">
-          <h1>Welcome to Fun Bus</h1>
+        <div className="scoreboard-header">
+          <h1>ScoreBoard</h1>
           <h2 className="list-header">Team Members:</h2>
         </div>
         <div>
@@ -23,7 +24,10 @@ const StudentList = props => {
             {props.students
               .map(student => {
                 return (
-                  <Link to={`/scoreboard/${student.id}`} key={student.id}>
+                  <Link
+                    to={`/scoreboard/student/${student.id}`}
+                    key={student.id}
+                  >
                     <Student
                       {...props}
                       name={student.name}
@@ -34,6 +38,26 @@ const StudentList = props => {
                 );
               })
               .reverse()}
+          </section>
+          <section className="score-button">
+            <Button
+              component={Link}
+              to="/scoreboard/form"
+              variant="outlined"
+              color="secondary"
+              className="button"
+            >
+              Add Points
+            </Button>
+            <Button
+              component={Link}
+              to="/"
+              variant="outlined"
+              color="secondary"
+              className="button"
+            >
+              Home
+            </Button>
           </section>
         </div>
       </div>
