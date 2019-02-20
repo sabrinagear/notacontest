@@ -48,6 +48,19 @@ class ScoreContainer extends Component {
       .catch(error => console.log(error));
   };
 
+  delete = id => {
+    console.log("deleteFired", id);
+    axios
+      .delete(`https://notacontest.herokuapp.com/scores/${id}`)
+      .then(res => {
+        console.log("successful", res);
+        this.setState({ points: res.data.scores });
+        this.fetchStudents();
+        this.fetchPoints();
+      })
+      .catch(error => console.log(error));
+  };
+
   render() {
     const { students, scores } = this.state;
     return (
@@ -77,6 +90,7 @@ class ScoreContainer extends Component {
                   scores={scores}
                   getEntries={this.getEntries}
                   getTotal={this.getTotal}
+                  delete={this.delete}
                 />
               )}
             />

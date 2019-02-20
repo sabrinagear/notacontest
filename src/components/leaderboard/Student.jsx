@@ -30,7 +30,7 @@ class Student extends Component {
   }
   render() {
     return (
-      <div className="student-card">
+      <div className="student-card hoverable">
         <h2>{this.props.name}</h2>
         <h3>Points: {this.state.totalPoints}</h3>
       </div>

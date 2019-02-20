@@ -45,7 +45,7 @@ const StudentList = props => {
               to="/scoreboard/form"
               variant="outlined"
               color="secondary"
-              className="button"
+              className="button hoverable"
             >
               Add Points
             </Button>
@@ -54,7 +54,7 @@ const StudentList = props => {
               to="/"
               variant="outlined"
               color="secondary"
-              className="button"
+              className="button hoverable"
             >
               Home
             </Button>
