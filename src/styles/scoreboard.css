@@ -1,0 +1,158 @@
+.scoreboard-header {
+  text-align: center;
+}
+
+.scoreboard-header h1 {
+  padding: 2rem 0 1rem 0;
+  font-size: 5rem;
+}
+.list {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 2rem 0;
+  justify-content: space-between;
+}
+
+.list a {
+  width: 30%;
+  min-height: 10rem;
+  margin: 0.5rem 1rem;
+}
+
+.studentcard {
+  width: 100%;
+  min-height: 10rem;
+  border-radius: 1rem;
+  text-align: center;
+}
+
+.score-button {
+  display: flex;
+  justify-content: center;
+}
+
+.score-button a {
+  width: 10rem;
+  margin: 1rem;
+}
+
+form h1 {
+  margin: 3rem;
+}
+
+form input {
+  text-align: center;
+  font-family: "Nova Round", cursive;
+}
+
+.MuiSelect-root-10 {
+  font-family: "Nova Round", cursive;
+  font-size: 2rem;
+  padding-left: 32px;
+  padding-top: 0.5rem;
+  text-align: center;
+  margin: 0;
+}
+
+.form-submit {
+  padding: 1rem 3rem;
+  border-radius: 1rem;
+  background: rgb(206, 102, 137);
+  font-family: "Nova Round", cursive;
+  font-size: 2rem;
+  margin: 1rem;
+}
+
+.form-submit:hover {
+  background: rgb(146, 74, 98);
+}
+
+.student-card {
+  background-color: rgb(201, 143, 162);
+  color: black;
+  height: 10rem;
+  width: 100%;
+  border-radius: 0.5rem;
+  border: solid 1px rgb(70, 69, 69);
+  -moz-box-shadow: 5px 5px 0px rgb(41, 40, 40);
+  -webkit-box-shadow: 5px 5px 0px rgb(41, 40, 40);
+  box-shadow: 5px 5px 0px rgb(41, 40, 40);
+  text-align: center;
+}
+
+.student-card h2 {
+  font-family: "Monoton", cursive;
+  border: 1px solid black;
+  color: black;
+  margin: 0.5rem;
+}
+
+/* studentview */
+
+.student-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgb(201, 143, 162);
+  height: 100vh;
+}
+
+div.student-view * {
+  margin: 0.5rem;
+}
+
+.student-view h1 {
+  font-weight: bold;
+}
+
+.student-view h2 {
+  font-family: "Monoton", cursive;
+  font-weight: bold;
+}
+
+.student-view ul {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  width: 100%;
+  margin: 1rem;
+}
+
+.e-card {
+  flex-basis: 30%;
+  max-width: 50%;
+  flex: 1;
+  background: rgb(34, 34, 34);
+  color: white;
+  border-radius: 1rem;
+  font-size: 1rem;
+  margin: 1rem;
+}
+
+.e-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.e-card-head i {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+#page-numbers {
+  width: 20rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#page-numbers li {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.bb {
+  padding: 0.5rem 2rem;
+  height: 2rem;
+}
