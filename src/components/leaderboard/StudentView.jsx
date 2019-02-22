@@ -7,7 +7,6 @@ import Entry from "./Entry";
 
 //import PropTypes from "prop-types";
 
-//NoteView is the class that displays a single note. This class deploys the editNote() and deleteNote() functions, which live in the App.js file
 
 class StudentView extends Component {
   constructor(props) {

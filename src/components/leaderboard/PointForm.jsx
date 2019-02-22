@@ -1,13 +1,18 @@
-import React from "react";
+
+import React, { useState } from "react";
 import PropTypes from "prop-types";
-import classNames from "classnames";
+
+
 import { withStyles } from "@material-ui/core/styles";
 import MenuItem from "@material-ui/core/MenuItem";
 import TextField from "@material-ui/core/TextField";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 
-const styles = theme => ({
+const styles = () => ({
+
+
+
   container: {
     backgroundColor: "#adcfbe",
     height: "100vh",
@@ -35,105 +40,111 @@ const styles = theme => ({
   }
 });
 
-class PointForm extends React.Component {
-  state = {
+
+const PointForm = props => {
+  const [formData, setFormData] = useState({
     task: "",
-    points: 0,
-    studentId: 0
+    studentId: 0,
+    points: 0
+  });
+  //hooks
+  const updateFormData = e => {
+    console.log(e.target.value);
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
   };
 
-  handleChange = name => event => {
-    this.setState({ [name]: event.target.value });
-  };
-
-  addPointHandler = e => {
+  const addPointHandler = e => {
     e.preventDefault();
     let epoch = Date.parse(new Date());
 
-    this.props.addPoints({
-      task: this.state.task,
-      points: this.state.points,
-      studentId: this.state.studentId,
+    props.addPoints({
+      task: formData.task,
+      points: formData.points,
+      studentId: formData.studentId,
       date: epoch
     });
 
-    this.setState({
+    setFormData({
+
       task: "",
       points: 0,
       studentId: 0
     });
-    console.log(this.props.history);
-    this.props.history.goBack();
+
+
+    props.history.goBack();
     window.scrollTo(0, 0);
   };
 
-  render() {
-    const { classes, students } = this.props;
+  const { classes, students } = props;
+  const { task, points, studentId } = formData;
 
-    return (
-      <form
-        className={classes.container}
-        noValidate
-        autoComplete="on"
-        onSubmit={this.addPointHandler}
+  return (
+    <form
+      className={classes.container}
+      noValidate
+      autoComplete="on"
+      onSubmit={addPointHandler}
+    >
+      <h1>Point-O-Matic</h1>
+      <h2>Student</h2>
+      <TextField
+        id="dropdown"
+        select
+        className={classes.textField}
+        value={studentId}
+        name="studentId"
+        onChange={e => updateFormData(e)}
+        SelectProps={{
+          MenuProps: {
+            className: classes.menu
+          }
+        }}
+        margin="normal"
       >
-        <h1>Point-O-Matic</h1>
-        <h2>Student</h2>
-        <TextField
-          id="dropdown"
-          select
-          className={classes.textField}
-          value={this.state.studentId}
-          onChange={this.handleChange("studentId")}
-          SelectProps={{
-            MenuProps: {
-              className: classes.menu
-            }
-          }}
-          margin="normal"
-        >
-          {students.map(s => (
-            <MenuItem key={s.id} value={s.id}>
-              {s.name}
-            </MenuItem>
-          ))}
-        </TextField>
-        <h2>Task</h2>
-        <TextField
-          id="input"
-          className={classes.textField}
-          value={this.state.task}
-          onChange={this.handleChange("task")}
-          margin="normal"
-        />
-        <h2>Points</h2>
-        <TextField
-          id="input"
-          value={this.state.points}
-          onChange={this.handleChange("points")}
-          type="number"
-          className={classes.textField}
-          InputLabelProps={{
-            shrink: true
-          }}
-          margin="normal"
-        />
+        {students.map(s => (
+          <MenuItem key={s.id} value={s.id}>
+            {s.name}
+          </MenuItem>
+        ))}
+      </TextField>
+      <h2>Task</h2>
+      <TextField
+        id="input"
+        className={classes.textField}
+        value={task}
+        name="task"
+        onChange={e => updateFormData(e)}
+        margin="normal"
+      />
+      <h2>Points</h2>
+      <TextField
+        id="input"
+        value={points}
+        name="points"
+        onChange={e => updateFormData(e)}
+        type="number"
+        className={classes.textField}
+        InputLabelProps={{
+          shrink: true
+        }}
+        margin="normal"
+      />
 
-        <button className="button form-submit" type="submit">
-          Save
-        </button>
+      <button className="button form-submit" type="submit">
+        Save
+      </button>
 
-        <Button
-          component={Link}
-          to="/scoreboard"
-          className="button form-submit"
-        >
-          Cancel
-        </Button>
-      </form>
-    );
-  }
-}
+      <Button component={Link} to="/scoreboard" className="button form-submit">
+        Cancel
+      </Button>
+    </form>
+  );
+};
+
 
 PointForm.propTypes = {
   classes: PropTypes.object.isRequired
