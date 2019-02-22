@@ -7,6 +7,7 @@ import Entry from "./Entry";
 
 //import PropTypes from "prop-types";
 
+
 class StudentView extends Component {
   constructor(props) {
     super(props);

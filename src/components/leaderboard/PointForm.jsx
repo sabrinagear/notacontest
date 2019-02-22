@@ -1,5 +1,7 @@
+
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+
 
 import { withStyles } from "@material-ui/core/styles";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -8,6 +10,9 @@ import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 
 const styles = () => ({
+
+
+
   container: {
     backgroundColor: "#adcfbe",
     height: "100vh",
@@ -34,6 +39,7 @@ const styles = () => ({
     width: 100
   }
 });
+
 
 const PointForm = props => {
   const [formData, setFormData] = useState({
@@ -62,10 +68,12 @@ const PointForm = props => {
     });
 
     setFormData({
+
       task: "",
       points: 0,
       studentId: 0
     });
+
 
     props.history.goBack();
     window.scrollTo(0, 0);
@@ -136,6 +144,7 @@ const PointForm = props => {
     </form>
   );
 };
+
 
 PointForm.propTypes = {
   classes: PropTypes.object.isRequired
