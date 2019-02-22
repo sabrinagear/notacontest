@@ -41,7 +41,7 @@ const PointForm = props => {
     studentId: 0,
     points: 0
   });
-
+  //hooks
   const updateFormData = e => {
     console.log(e.target.value);
     setFormData({
